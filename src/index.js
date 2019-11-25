@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { stat } from 'fs';
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Image from 'react-bootstrap/Image';
 
 class PhotoBrowser extends React.Component {
     constructor() {
@@ -23,9 +26,22 @@ class PhotoBrowser extends React.Component {
         let response = await fetch('http://jsonplaceholder.typicode.com/photos?_page=${pageNum}');
         const json = await response.json();
 
-        let pics = json.map(pic => {
-            return <img src={pic.thumbnailUrl}></img>
-        })
+        const pics = 
+            json.map((pic, i) => {
+                
+                // a new row should start after every fifth picture for regular screens
+                const mdParams = i % 5 === 0 
+                ? {span: 2, offset: 1} 
+                : {span: 2, offset: 0};
+
+                return (
+                    <Col md={{span: mdParams.span, offset: mdParams.offset}} sm={5} xs={5}> 
+                        <Image src={pic.thumbnailUrl} fluid>
+                        </Image> 
+                    </Col>
+                    )
+                }
+            )
 
         this.setState({
             pics: this.state.pics.concat(pics),
@@ -35,13 +51,27 @@ class PhotoBrowser extends React.Component {
 
     render() {
         return(
-            <div className="container">
-                {this.state.pics}
+            <body>
+                
+                <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-                <button className="moreButton" onClick={() => {
-                    this.fetchPhotos(this.state.currentPage + 1)
-                }}>Load more</button>
-            </div>
+                <link
+                rel="stylesheet"
+                href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+                integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+                crossorigin="anonymous"
+                />
+
+                <Container>
+                    <Row className="row">
+                        {this.state.pics}
+                    </Row>
+
+                    <Button className="moreButton" onClick={() => {
+                        this.fetchPhotos(this.state.currentPage + 1)
+                    }}>Load more</Button>
+                </Container>
+            </body>
         )
     }
 }
