@@ -5,10 +5,8 @@ import Row from 'react-bootstrap/Row';
 import DetailView from '../components/DetailView';
 import api from '../api';
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 
 const App = () => {
