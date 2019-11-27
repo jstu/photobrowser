@@ -8,9 +8,9 @@ import {
   Link
 } from "react-router-dom";
 
-function PictureContainer({pic, mdParams}) {
+function PictureContainer({pic}) {
     return (
-            <Col md={{span: mdParams.span, offset: mdParams.offset}} sm={5} xs={5} > 
+            <Col xl={2} lg={2} md={4} sm={4} xs={6} > 
                 <Link 
                     key={pic.id}
                     to={{

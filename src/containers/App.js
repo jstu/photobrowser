@@ -15,13 +15,14 @@ const App = () => {
 
   const [hasError, setErrors] = useState(false);
   const [pics, setPics] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentLimit, setCurrentLimit] = useState(12);
+  const limitMultiplier = 12;
 
   useEffect(() => {
-    api(currentPage).then(fetched => {
-      setPics(pics.concat(fetched));
+    api(currentLimit).then(fetched => {
+      setPics(fetched);
     })
-  }, [currentPage])
+  }, [currentLimit])
 
   return (
     <Container className="appcontainer">
@@ -38,7 +39,7 @@ const App = () => {
 
           <div className="buttonContainer">
             <Button onClick={() => {
-                setCurrentPage(currentPage + 1)
+                setCurrentLimit(currentLimit + limitMultiplier)
             }}>Load more</Button>
           </div>
         </Route>
