@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/photobrowser/static/css/main.5d49cd3b.chunk.css",
+    "main.js": "/photobrowser/static/js/main.db6765a7.chunk.js",
+    "main.js.map": "/photobrowser/static/js/main.db6765a7.chunk.js.map",
+    "runtime-main.js": "/photobrowser/static/js/runtime-main.287d6b5b.js",
+    "runtime-main.js.map": "/photobrowser/static/js/runtime-main.287d6b5b.js.map",
+    "static/js/2.e4e0cb47.chunk.js": "/photobrowser/static/js/2.e4e0cb47.chunk.js",
+    "static/js/2.e4e0cb47.chunk.js.map": "/photobrowser/static/js/2.e4e0cb47.chunk.js.map",
+    "index.html": "/photobrowser/index.html",
+    "precache-manifest.6037023fba71b00aaec150603b21f6fa.js": "/photobrowser/precache-manifest.6037023fba71b00aaec150603b21f6fa.js",
+    "service-worker.js": "/photobrowser/service-worker.js",
+    "static/css/main.5d49cd3b.chunk.css.map": "/photobrowser/static/css/main.5d49cd3b.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.287d6b5b.js",
+    "static/js/2.e4e0cb47.chunk.js",
+    "static/css/main.5d49cd3b.chunk.css",
+    "static/js/main.db6765a7.chunk.js"
+  ]
+}
