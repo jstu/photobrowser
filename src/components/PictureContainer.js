@@ -9,7 +9,6 @@ function PictureContainer({pic}) {
     return (
             <Col xl={2} lg={2} md={4} sm={4} xs={6} className="thumbcontainer"> 
                 <Link 
-                    key={pic.id}
                     to={{
                         pathname: `/img/${pic.id}`,
                     }}>

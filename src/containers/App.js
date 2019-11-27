@@ -11,7 +11,6 @@ import {
 
 const App = () => {
 
-  const [hasError, setErrors] = useState(false);
   const [pics, setPics] = useState([]);
   const [currentLimit, setCurrentLimit] = useState(12);
   const limitMultiplier = 12;

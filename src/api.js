@@ -14,7 +14,7 @@ async function fetchPhotos (limit) {
                     pic: pic,
                 }
 
-                return <PictureContainer {...props}/>;
+                return <PictureContainer {...props} key={pic.id}/>;
             }
         )
 
