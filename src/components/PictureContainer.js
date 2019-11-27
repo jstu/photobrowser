@@ -2,9 +2,6 @@ import React from 'react';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
   Link
 } from "react-router-dom";
 
@@ -15,9 +12,6 @@ function PictureContainer({pic}) {
                     key={pic.id}
                     to={{
                         pathname: `/img/${pic.id}`,
-                        state: {
-                            pic: pic
-                        }
                     }}>
 
                     <div className="thumbcontainer">

@@ -1,9 +1,11 @@
 import React from 'react';
 import PictureContainer from './components/PictureContainer';
 
-export async function fetchPhotos (pageNum) {
+const url = "http://jsonplaceholder.typicode.com"
+
+async function fetchPhotos (pageNum) {
     console.log("fetching images for page " + pageNum);
-    let response = await fetch(`http://jsonplaceholder.typicode.com/photos?_limit=${pageNum}`);
+    let response = await fetch(`${url}/photos?_limit=${pageNum}`);
     const json = await response.json();
 
     const fetchedPics = 
@@ -20,4 +22,18 @@ export async function fetchPhotos (pageNum) {
     return fetchedPics;
 }
 
-export default fetchPhotos;
+async function fetchSinglePhoto (id) {
+    console.log("fetching image " + id);
+    let response = await fetch(`${url}/photos/${id}`);
+    if(response.ok) {
+        const json = await response.json();
+        return json;
+    } else {
+        throw new Error("failed to fetch image");
+    }
+}
+
+export default {
+    photos: fetchPhotos,
+    photo: fetchSinglePhoto,
+};

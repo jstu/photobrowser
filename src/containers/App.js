@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import DetailView from '../components/DetailView';
-import api, { fetchPhotos } from '../api';
+import api from '../api';
 import {
   BrowserRouter as Router,
   Switch,
@@ -19,7 +19,8 @@ const App = () => {
   const limitMultiplier = 12;
 
   useEffect(() => {
-    api(currentLimit).then(fetched => {
+    api.photos(currentLimit)
+    .then(fetched => {
       setPics(fetched);
     })
   }, [currentLimit])
@@ -27,8 +28,8 @@ const App = () => {
   return (
     <Container className="appcontainer">
       <Switch>
-        <Route path="/img/:id" render={props => (
-            <DetailView {...props} />
+        <Route path="/img/:id" render={() => (
+            <DetailView {...pics} />
           )}
         />
 
