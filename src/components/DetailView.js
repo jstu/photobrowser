@@ -1,7 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import Image from 'react-bootstrap/Image';
 import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
+import Figure from 'react-bootstrap/Figure';
 import api from '../api';
+import {
+  Link
+} from "react-router-dom";
 import {
   useParams
 } from "react-router-dom";
@@ -30,8 +34,23 @@ function DetailView() {
     } else {
         return (
             <Container>
-                <h1 className="detailstitle">{image.title}</h1>
-                <Image src={image.url} fluid/>
+                <Link to={{ pathname: `/`}}>
+                    <Button variant="info" className="backbutton">Back</Button>
+                </Link>
+                <Container className="detailscontainer">
+                    <Figure>
+                    <Figure.Image
+                        src={image.url}
+                    />
+                    <Figure.Caption>
+                        {image.title}
+                    </Figure.Caption>
+
+                    <Figure.Caption>
+                        Album: {image.albumId}
+                    </Figure.Caption>
+                    </Figure>
+                </Container>
 
             </Container>
         )

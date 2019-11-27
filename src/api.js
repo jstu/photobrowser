@@ -3,9 +3,8 @@ import PictureContainer from './components/PictureContainer';
 
 const url = "https://jsonplaceholder.typicode.com"
 
-async function fetchPhotos (pageNum) {
-    console.log("fetching images for page " + pageNum);
-    let response = await fetch(`${url}/photos?_limit=${pageNum}`);
+async function fetchPhotos (limit) {
+    let response = await fetch(`${url}/photos?_limit=${limit}`);
     const json = await response.json();
 
     const fetchedPics = 
@@ -23,7 +22,6 @@ async function fetchPhotos (pageNum) {
 }
 
 async function fetchSinglePhoto (id) {
-    console.log("fetching image " + id);
     let response = await fetch(`${url}/photos/${id}`);
     if(response.ok) {
         const json = await response.json();

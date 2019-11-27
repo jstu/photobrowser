@@ -37,7 +37,7 @@ const App = () => {
           </Row>
 
           <div className="buttonContainer">
-            <Button onClick={() => {
+            <Button variant="info" onClick={() => {
                 setCurrentLimit(currentLimit + limitMultiplier)
             }}>Load more</Button>
           </div>
