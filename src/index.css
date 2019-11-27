@@ -12,3 +12,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.thumbnails {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+.thumbcontainer {
+  padding: 5%;
+ }
+
+.buttonContainer {
+  align-content: center;
+  text-align: center;
+  padding: 2em;
+}
+
+.appcontainer {
+  background-color: #222234 !important;
+}
+
+.thumbtitle {
+  font-size: x-small;
+  color: #ffffff;
+}
+
+.detailstitle {
+  font-size: large;
+  color: #ffffff;
+}

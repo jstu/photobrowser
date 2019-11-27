@@ -2,10 +2,16 @@ import React, {useState, useEffect} from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import DetailView from '../components/DetailView';
 import api, { fetchPhotos } from '../api';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 const App = () => {
-  console.log("called App what the crApp");
 
   const [hasError, setErrors] = useState(false);
   const [pics, setPics] = useState([]);
@@ -17,16 +23,28 @@ const App = () => {
     })
   }, [currentPage])
 
-  return(
-      <Container>
-          <Row className="row">
+  return (
+    <Container className="appcontainer">
+      <Switch>
+        <Route path="/img/:id" render={props => (
+            <DetailView {...props} />
+          )}
+        />
+
+        <Route path="/">
+          <Row className="justify-content-center thumbnails">
               {pics}
           </Row>
 
-          <Button className="moreButton" onClick={() => {
-              setCurrentPage(currentPage + 1)
-          }}>Load more</Button>
-      </Container>
+          <div className="buttonContainer">
+            <Button onClick={() => {
+                setCurrentPage(currentPage + 1)
+            }}>Load more</Button>
+          </div>
+        </Route>
+
+      </Switch>
+    </Container>
   )
 }
 

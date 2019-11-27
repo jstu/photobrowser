@@ -3,7 +3,7 @@ import PictureContainer from './components/PictureContainer';
 
 export async function fetchPhotos (pageNum) {
     console.log("fetching images for page " + pageNum);
-    let response = await fetch('http://jsonplaceholder.typicode.com/photos?_page=${pageNum}');
+    let response = await fetch(`http://jsonplaceholder.typicode.com/photos?_page=${pageNum}`);
     const json = await response.json();
 
     const fetchedPics = 
@@ -13,7 +13,7 @@ export async function fetchPhotos (pageNum) {
                 ? {span: 2, offset: 1} 
                 : {span: 2, offset: 0};
 
-                let props = {
+                const props = {
                     pic: pic,
                     mdParams: mdParams,
                 }
@@ -23,6 +23,6 @@ export async function fetchPhotos (pageNum) {
         )
 
     return fetchedPics;
-  }
+}
 
 export default fetchPhotos;
