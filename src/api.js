@@ -1,7 +1,7 @@
 import React from 'react';
 import PictureContainer from './components/PictureContainer';
 
-const url = "http://jsonplaceholder.typicode.com"
+const url = "https://jsonplaceholder.typicode.com"
 
 async function fetchPhotos (pageNum) {
     console.log("fetching images for page " + pageNum);
